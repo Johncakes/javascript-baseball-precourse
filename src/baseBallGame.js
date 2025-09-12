@@ -15,4 +15,27 @@ export default function BaseballGame(){
         pitchNumber = generateRandomNum();
         console.log("ans : " + pitchNumber); // Developer log
     }
+
+    const userInput = (userInput) => {
+        if (checkValidInput(userInput)){
+            return play(pitchNumber, userInput);
+        }
+        throw new Error("Invalid input");
+    }
+
+    const checkValidInput = (userInput) => {
+    }
+
+    const countStrikesAndBalls = (computerInputNumbers, userInputNumbers) => {
+    }
+
+    const resultOutput = (strikes, balls) => {
+    }
+
+    const play = (computerInputNumbers, userInputNumbers) =>{
+        const { strikes, balls } = countStrikesAndBalls(computerInputNumbers, userInputNumbers);
+        return resultOutput(strikes, balls);
+    }
+
+    return {userInput, startGame};
 }
