@@ -27,9 +27,35 @@ export default function BaseballGame(){
     }
 
     const countStrikesAndBalls = (computerInputNumbers, userInputNumbers) => {
+        const computerInputList = computerInputNumbers.split('');
+        const userInputList = userInputNumbers.split('');
+
+        let strikes = 0;
+        let balls = 0;
+
+        userInputList.forEach((num, index) => {
+            if (num === computerInputList[index]) {
+                strikes++;
+            }
+            else if (computerInputList.includes(num)) {
+                balls++;
+            }
+        });
+
+        return { strikes, balls };
     }
 
     const resultOutput = (strikes, balls) => {
+        let result = "";
+
+        if (strikes === 3) {
+            result = "win";
+        } else if (strikes === 0 && balls === 0) {
+            result = "낫싱";
+        } else {
+            result = `${balls}볼 ${strikes}스트라이크`;
+        }
+        return result;
     }
 
     const play = (computerInputNumbers, userInputNumbers) =>{
