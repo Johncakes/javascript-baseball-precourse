@@ -24,6 +24,12 @@ export default function BaseballGame(){
     }
 
     const checkValidInput = (userInput) => {
+        const regex = /^\d{3}$/;
+        if (!regex.test(userInput)) return false;
+
+        const digits = userInput.split('');
+        const uniqueDigits= new Set(digits);
+        return uniqueDigits.size === 3;
     }
 
     const countStrikesAndBalls = (computerInputNumbers, userInputNumbers) => {
