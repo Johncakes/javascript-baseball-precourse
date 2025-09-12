@@ -1,0 +1,42 @@
+export default function View({ onSubmit, onRestart }){
+    const submitButton = document.getElementById("submit");
+    const restartButton = document.getElementById("game-restart-button");
+    const restartSuggestionText = document.getElementById("restart-suggestion-text");
+    const resultText = document.getElementById("result");
+    const userInput = document.getElementById("user-input");
+
+    submitButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        if(onSubmit){
+            onSubmit(userInput.value);
+        }
+    });
+
+    restartButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        if(onRestart){
+            onRestart();
+        }
+    });
+
+    const gameStartView = () => {
+        restartButton.style.display = 'none';
+        restartSuggestionText.style.display = 'none';
+        resultText.innerText = '';
+    }
+
+    const updateView = (result) => {
+        resultText.innerText = result;
+    }
+
+    const gameWinView = () => {
+        restartButton.style.display = 'block';
+        restartSuggestionText.style.display = 'block';
+    }
+
+    const errorView = () => {
+        alert("잘못된 입력입니다. 세 자리 숫자를 입력해주세요.");
+    }
+
+    return { gameStartView,  updateView,  gameWinView, errorView};
+}
