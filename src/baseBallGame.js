@@ -52,16 +52,12 @@ export default function BaseballGame(){
     }
 
     const resultOutput = (strikes, balls) => {
-        let result = "";
-
         if (strikes === 3) {
-            result = "win";
+            return "win";
         } else if (strikes === 0 && balls === 0) {
-            result = "낫싱";
-        } else {
-            result = `${balls}볼 ${strikes}스트라이크`;
+            return "낫싱";
         }
-        return result;
+        return `${balls}볼 ${strikes}스트라이크`;
     }
 
     const play = (computerInputNumbers, userInputNumbers) =>{
