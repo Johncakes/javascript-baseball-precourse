@@ -5,23 +5,23 @@ const baseBallGame = BaseBallGame();
 const view = View({
     onSubmit: (userInput) => {
         try {
-            const result = baseBallGame.userInput(userInput);
+            const result = baseBallGame.handleUserInput(userInput);
             if (result === "win"){
-                view.gameWinView();
+                view.displayGameWinView();
             }
             else{
                 view.updateView(result);
             }
         } catch (error) {
-            view.errorView();
+            view.displayErrorView();
         }
         
     },
     onRestart: () => {
         baseBallGame.startGame();
-        view.gameStartView();
+        view.displayGameStartView();
     }
 });
 
-view.gameStartView();
+view.displayGameStartView();
 baseBallGame.startGame();

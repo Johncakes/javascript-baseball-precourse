@@ -16,7 +16,7 @@ export default function BaseballGame(){
         console.log("ans : " + pitchNumber); // Developer log
     }
 
-    const userInput = (userInput) => {
+    const handleUserInput = (userInput) => {
         if (checkValidInput(userInput)){
             return play(pitchNumber, userInput);
         }
@@ -69,5 +69,5 @@ export default function BaseballGame(){
         return resultOutput(strikes, balls);
     }
 
-    return {userInput, startGame};
+    return {handleUserInput, startGame};
 }

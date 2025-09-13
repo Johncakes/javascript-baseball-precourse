@@ -19,7 +19,7 @@ export default function View({ onSubmit, onRestart }){
         }
     });
 
-    const gameStartView = () => {
+    const displayGameStartView = () => {
         restartButton.style.display = 'none';
         restartSuggestionText.style.display = 'none';
         resultText.innerText = '';
@@ -29,14 +29,14 @@ export default function View({ onSubmit, onRestart }){
         resultText.innerText = result;
     }
 
-    const gameWinView = () => {
+    const displayGameWinView = () => {
         restartButton.style.display = 'block';
         restartSuggestionText.style.display = 'block';
     }
 
-    const errorView = () => {
+    const displayErrorView = () => {
         alert("잘못된 입력입니다. 세 자리 숫자를 입력해주세요.");
     }
 
-    return { gameStartView,  updateView,  gameWinView, errorView};
+    return { displayGameStartView,  updateView,  displayGameWinView, displayErrorView};
 }
