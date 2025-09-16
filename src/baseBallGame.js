@@ -1,5 +1,6 @@
 export default function BaseballGame(){
     let pitchNumber = "";
+    
     const generateRandomNum= () => {
         const digits = new Set();
 
@@ -10,10 +11,9 @@ export default function BaseballGame(){
 
         return [...digits].join(''); 
     }
-    // Leaving this for future development possibilities 
+
     const startGame = () => {
         pitchNumber = generateRandomNum();
-        console.log("ans : " + pitchNumber); // Developer log
     }
 
     const handleUserInput = (userInput) => {
@@ -31,7 +31,7 @@ export default function BaseballGame(){
         const uniqueDigits= new Set(digits);
         return uniqueDigits.size === 3;
     }
-
+    
     const countStrikesAndBalls = (computerInputNumbers, userInputNumbers) => {
         const computerInputList = computerInputNumbers.split('');
         const userInputList = userInputNumbers.split('');
@@ -51,7 +51,7 @@ export default function BaseballGame(){
         return { strikes, balls };
     }
 
-    const resultOutput = (strikes, balls) => {
+    const formatResult = (strikes, balls) => {
         if (strikes === 3) {
             return "win";
         } else if (strikes === 0 && balls === 0) {
@@ -62,7 +62,7 @@ export default function BaseballGame(){
 
     const play = (computerInputNumbers, userInputNumbers) =>{
         const { strikes, balls } = countStrikesAndBalls(computerInputNumbers, userInputNumbers);
-        return resultOutput(strikes, balls);
+        return formatResult(strikes, balls);
     }
 
     return {handleUserInput, startGame};
